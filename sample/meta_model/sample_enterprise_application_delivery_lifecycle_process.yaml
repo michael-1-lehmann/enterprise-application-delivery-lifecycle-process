@@ -1,0 +1,1048 @@
+Phases:
+    - Name: "Continuous Exploration"
+      Width: 3
+    - Name: "Plan"
+      Width: 4
+    - Name: "Develop"
+      Width: 10
+    - Name: "Continuous Integration"
+      Width: 6
+    - Name: "Continuous Deployment"
+      Width: 11
+    - Name: "Operate"
+      Width: 7
+
+ProcessGroups:
+    - Name: "Application Management"
+      Color: "#C92D39"
+    - Name: "Agile Development"
+      Color: "#FCC438"
+    - Name: "Compliance"
+      Color: "#834187"
+    - Name: "Architecture"
+      Color: "#EF8D22"
+    - Name: "Application Development Core Process"
+      Color: "#19967D"
+    - Name: "Application Operation Core Process"
+      Color: "#0C7CBA"
+    - Name: "Software Configuration Management (SCM)"
+      Color: "#7AB648"
+    - Name: "Quality Management"
+      Color: "#DE5F85"
+    - Name: "Security"
+      Color: "#C1E4F7"
+
+Activities:
+    - Name: "Define Epic"
+      ProcessGroup: "Agile Development"
+      ID: "define-epic"
+      Phase: "Continuous Exploration"
+      X: 1
+      Y: 1
+    - Name: "Validate Epic"
+      ProcessGroup: "Agile Development"
+      ID: "validate-epic"
+      Phase: "Operate"
+      X: 36
+      Y: 1
+    - Name: "Define Features"
+      ProcessGroup: "Agile Development"
+      ID: "define-features"
+      Phase: "Continuous Exploration"
+      X: 2
+      Y: 6
+    - Name: "Define Business Requirements"
+      ProcessGroup: "Agile Development"
+      ID: "define-business-requirements"
+      Phase: "Plan"
+      X: 4
+      Y: 6
+    - Name: "Define User Stories"
+      ProcessGroup: "Agile Development"
+      ID: "define-user-stories"
+      Phase: "Plan"
+      X: 6
+      Y: 6
+    - Name: "Register Application"
+      ProcessGroup: "Application Management"
+      ID: "register-application"
+      Phase: "Continuous Exploration"
+      X: 2
+      Y: 2
+    - Name: "Manage Application Financials"
+      ProcessGroup: "Application Management"
+      ID: "manage-application-financials"
+      Phase: "Continuous Exploration"
+      X: 3
+      Y: 2
+    - Name: "Plan Application Releases"
+      ProcessGroup: "Application Management"
+      ID: "plan-application-releases"
+      Phase: "Plan"
+      X: 4
+      Y: 2
+    - Name: "Define Third_Party Contracts"
+      ProcessGroup: "Application Management"
+      ID: "define-third-party-contracts"
+      Phase: "Plan"
+      X: 5
+      Y: 2
+    - Name: "Resolve Policy Exceptions"
+      ProcessGroup: "Application Management"
+      ID: "resolve-policy-exceptions"
+      Phase: "Plan"
+      X: 6
+      Y: 2
+    - Name: "Grant Environment Access"
+      ProcessGroup: "Application Management"
+      ID: "grant-environment-access"
+      Phase: "Develop"
+      X: 8
+      Y: 2
+    - Name: "Update Application Meta-Information"
+      ProcessGroup: "Application Management"
+      ID: "update-application-meta-information"
+      Phase: "Continuous Deployment"
+      X: 24
+      Y: 2
+    - Name: "Manage Third_Party Contracts"
+      ProcessGroup: "Application Management"
+      ID: "manage-third-party-contracts"
+      Phase: "Operate"
+      X: 36
+      Y: 2
+    - Name: "Manage Application Service"
+      ProcessGroup: "Application Management"
+      ID: "manage-application-service"
+      Phase: "Operate"
+      X: 37
+      Y: 2
+    - Name: "Manage Application Risks"
+      ProcessGroup: "Application Management"
+      ID: "manage-application-risks"
+      Phase: "Operate"
+      X: 38
+      Y: 2
+    - Name: "Raise Policy Exceptions"
+      ProcessGroup: "Application Management"
+      ID: "raise-policy-exceptions"
+      Phase: "Operate"
+      X: 39
+      Y: 2
+    - Name: "Revalidate Engineer Access"
+      ProcessGroup: "Application Management"
+      ID: "revalidate-engineer-access"
+      Phase: "Operate"
+      X: 40
+      Y: 2
+    - Name: "Decommission Application"
+      ProcessGroup: "Application Management"
+      ID: "decommission-application"
+      Phase: "Operate"
+      X: 41
+      Y: 2
+    - Name: "Define Regulatory Requirements"
+      ProcessGroup: "Compliance"
+      ID: "define-regulatory-requirements"
+      Phase: "Plan"
+      X: 4
+      Y: 3
+    - Name: "Perform Risk Assessment"
+      ProcessGroup: "Compliance"
+      ID: "perform-risk-assessment"
+      Phase: "Plan"
+      X: 5
+      Y: 3
+    - Name: "Implement Controls"
+      ProcessGroup: "Compliance"
+      ID: "implement-controls"
+      Phase: "Develop"
+      X: 12
+      Y: 3
+    - Name: "Verify Compliance"
+      ProcessGroup: "Compliance"
+      ID: "verify-compliance"
+      Phase: "Continuous Deployment"
+      X: 18
+      Y: 3
+    - Name: "Provide Control Evidence"
+      ProcessGroup: "Compliance"
+      ID: "provide-control-evidence"
+      Phase: "Operate"
+      X: 36
+      Y: 3
+    - Name: "Define Non-Functional Requirements"
+      ProcessGroup: "Architecture"
+      ID: "define-non-functional-requirements"
+      Phase: "Plan"
+      X: 4
+      Y: 4
+    - Name: "Define Service Requirements"
+      ProcessGroup: "Architecture"
+      ID: "define-service-requirements"
+      Phase: "Plan"
+      X: 5
+      Y: 4
+    - Name: "Define Solution Architecture"
+      ProcessGroup: "Architecture"
+      ID: "define-solution-architecture"
+      Phase: "Plan"
+      X: 6
+      Y: 4
+    - Name: "Design Solution Architecture"
+      ProcessGroup: "Architecture"
+      ID: "design-solution-architecture"
+      Phase: "Develop"
+      X: 8
+      Y: 4
+    - Name: "Review Solution Architecture"
+      ProcessGroup: "Architecture"
+      ID: "review-solution-architecture"
+      Phase: "Develop"
+      X: 9
+      Y: 4
+    - Name: "Review Cloud Architecture"
+      ProcessGroup: "Architecture"
+      ID: "review-cloud-architecture"
+      Phase: "Continuous Deployment"
+      X: 24
+      Y: 4
+    - Name: "Manage Technical Debts"
+      ProcessGroup: "Architecture"
+      ID: "manage-technical-debts"
+      Phase: "Operate"
+      X: 36
+      Y: 4
+    - Name: "Define Test Strategy"
+      ProcessGroup: "Quality Management"
+      ID: "define-test-strategy"
+      Phase: "Plan"
+      X: 7
+      Y: 5
+    - Name: "Define Operations Requirements"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "define-operations-requirements"
+      Phase: "Plan"
+      X: 4
+      Y: 9
+    - Name: "Define Security Requirements"
+      ProcessGroup: "Security"
+      ID: "define-security-requirements"
+      Phase: "Plan"
+      X: 4
+      Y: 10
+    - Name: "Setup Development Environment"
+      ProcessGroup: "Application Development Core Process"
+      ID: "setup-development-environment"
+      Phase: "Develop"
+      X: 8
+      Y: 6
+    - Name: "Create Feature Branch"
+      ProcessGroup: "Software Configuration Management (SCM)"
+      ID: "create-feature-branch"
+      Phase: "Develop"
+      X: 9
+      Y: 6
+    - Name: "Write Application Code"
+      ProcessGroup: "Application Development Core Process"
+      ID: "write-application-code"
+      Phase: "Develop"
+      X: 10
+      Y: 6
+    - Name: "Define SBOM"
+      ProcessGroup: "Application Development Core Process"
+      ID: "define-sbom"
+      Phase: "Develop"
+      X: 11
+      Y: 6
+    - Name: "Perform Static_Code analysis (IDE)"
+      ProcessGroup: "Quality Management"
+      ID: "perform-static-code-analysis-ide"
+      Phase: "Develop"
+      X: 12
+      Y: 6
+    - Name: "Perform SAST (IDE)"
+      ProcessGroup: "Security"
+      ID: "perform-sast-ide"
+      Phase: "Develop"
+      X: 13
+      Y: 6
+    - Name: "Perform SCA (IDE)"
+      ProcessGroup: "Security"
+      ID: "perform-sca-ide"
+      Phase: "Develop"
+      X: 14
+      Y: 6
+    - Name: "Perform Unit_Test (IDE)"
+      ProcessGroup: "Quality Management"
+      ID: "perform-unit-test-ide"
+      Phase: "Develop"
+      X: 15
+      Y: 6
+    - Name: "Write Infrastructure Code (IaC)"
+      ProcessGroup: "Application Development Core Process"
+      ID: "write-infrastrucutre-code"
+      Phase: "Develop"
+      X: 10
+      Y: 7
+    - Name: "Design API"
+      ProcessGroup: "Application Development Core Process"
+      ID: "design-api"
+      Phase: "Develop"
+      X: 10
+      Y: 8
+    - Name: "Configure DNS"
+      ProcessGroup: "Application Development Core Process"
+      ID: "configure-dns"
+      Phase: "Develop"
+      X: 11
+      Y: 7
+    - Name: "Update documentation"
+      ProcessGroup: "Application Development Core Process"
+      ID: "update-documentation"
+      Phase: "Develop"
+      X: 16
+      Y: 6
+    - Name: "Commit Source Code"
+      ProcessGroup: "Software Configuration Management (SCM)"
+      ID: "commit-source-code"
+      Phase: "Develop"
+      X: 17
+      Y: 6
+    - Name: "Model Threats"
+      ProcessGroup: "Security"
+      ID: "model-threats"
+      Phase: "Develop"
+      X: 10
+      Y: 10
+    - Name: "Configure Firewalls"
+      ProcessGroup: "Security"
+      ID: "configure-firewalls"
+      Phase: "Develop"
+      X: 11
+      Y: 10
+    - Name: "Define Roles"
+      ProcessGroup: "Security"
+      ID: "define-roles"
+      Phase: "Develop"
+      X: 12
+      Y: 10
+    - Name: "Implement Operations Requirements"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "implement-operations-requirements"
+      Phase: "Develop"
+      X: 10
+      Y: 9
+    - Name: "Update Operational Documentation"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "update-operational-documentation"
+      Phase: "Develop"
+      X: 16
+      Y: 9
+    - Name: "Perform Static_Code analysis"
+      ProcessGroup: "Quality Management"
+      ID: "perform-static-code-analysis"
+      Phase: "Continuous Integration"
+      X: 19
+      Y: 5
+    - Name: "Perform Unit Test"
+      ProcessGroup: "Quality Management"
+      ID: "perform-unit-test"
+      Phase: "Continuous Integration"
+      X: 20
+      Y: 5
+    - Name: "Build Application Artifacts"
+      ProcessGroup: "Application Development Core Process"
+      ID: "build-application-artifacts"
+      Phase: "Continuous Integration"
+      X: 18
+      Y: 6
+    - Name: "Publish Application Artifacts"
+      ProcessGroup: "Software Configuration Management (SCM)"
+      ID: "publish-application-artifacts"
+      Phase: "Continuous Integration"
+      X: 23
+      Y: 6
+    - Name: "Perform SAST"
+      ProcessGroup: "Security"
+      ID: "perform-sast"
+      Phase: "Continuous Integration"
+      X: 19
+      Y: 10
+    - Name: "Scan Infrastructure Code (IaC)"
+      ProcessGroup: "Security"
+      ID: "scan-infrastructure-code"
+      Phase: "Continuous Integration"
+      X: 20
+      Y: 10
+    - Name: "Scan Container Image"
+      ProcessGroup: "Security"
+      ID: "scan-container-image"
+      Phase: "Continuous Integration"
+      X: 21
+      Y: 10
+    - Name: "Perform SCA"
+      ProcessGroup: "Security"
+      ID: "perform-sca"
+      Phase: "Continuous Integration"
+      X: 22
+      Y: 10
+    - Name: "Deploy Infrastructure"
+      ProcessGroup: "Application Development Core Process"
+      ID: "deploy-infrastructure"
+      Phase: "Continuous Deployment"
+      X: 24
+      Y: 6
+    - Name: "Deploy Application"
+      ProcessGroup: "Application Development Core Process"
+      ID: "deploy-application"
+      Phase: "Continuous Deployment"
+      X: 25
+      Y: 6
+    - Name: "Perform DAST"
+      ProcessGroup: "Security"
+      ID: "perform-dast"
+      Phase: "Continuous Deployment"
+      X: 26
+      Y: 10
+    - Name: "Perform Penetration Test"
+      ProcessGroup: "Security"
+      ID: "perform-penetration-test"
+      Phase: "Continuous Deployment"
+      X: 27
+      Y: 10
+    - Name: "Generate Test Data"
+      ProcessGroup: "Quality Management"
+      ID: "generate-test-data"
+      Phase: "Continuous Deployment"
+      X: 26
+      Y: 5
+    - Name: "Perform SIT"
+      ProcessGroup: "Quality Management"
+      ID: "perform-sit"
+      Phase: "Continuous Deployment"
+      X: 27
+      Y: 5
+    - Name: "Perform Load and Performance Test"
+      ProcessGroup: "Quality Management"
+      ID: "perform-load-and-performance-test"
+      Phase: "Continuous Deployment"
+      X: 28
+      Y: 5
+    - Name: "Perform UAT"
+      ProcessGroup: "Quality Management"
+      ID: "perform-uat"
+      Phase: "Continuous Deployment"
+      X: 29
+      Y: 5
+    - Name: "Perform Operational Acceptance Test"
+      ProcessGroup: "Quality Management"
+      ID: "perform-operational-acceptance-test"
+      Phase: "Continuous Deployment"
+      X: 30
+      Y: 5
+    - Name: "Manage Transition to Operations"
+      ProcessGroup: "Quality Management"
+      ID: "manage-transition-to-operations"
+      Phase: "Continuous Deployment"
+      X: 31
+      Y: 5
+    - Name: "Document Release Notes"
+      ProcessGroup: "Application Development Core Process"
+      ID: "document-release-notes"
+      Phase: "Continuous Deployment"
+      X: 32
+      Y: 6
+    - Name: "Obtain Change Approval"
+      ProcessGroup: "Application Development Core Process"
+      ID: "obtain-change-approval"
+      Phase: "Continuous Deployment"
+      X: 33
+      Y: 6
+    - Name: "Perform Deployment Verification Test"
+      ProcessGroup: "Quality Management"
+      ID: "perform-deployment-verification-test"
+      Phase: "Continuous Deployment"
+      X: 34
+      Y: 5
+    - Name: "Release to Production"
+      ProcessGroup: "Application Development Core Process"
+      ID: "release-to-production"
+      Phase: "Continuous Deployment"
+      X: 35
+      Y: 6
+    - Name: "Rotate Secrets"
+      ProcessGroup: "Security"
+      ID: "rotate-secrets"
+      Phase: "Operate"
+      X: 36
+      Y: 10
+    - Name: "Monitor Security Compliance"
+      ProcessGroup: "Security"
+      ID: "monitor-security-compliance"
+      Phase: "Operate"
+      X: 37
+      Y: 10
+    - Name: "Perform SAST"
+      ProcessGroup: "Security"
+      ID: "perform-sast-ops"
+      Phase: "Operate"
+      X: 38
+      Y: 10
+    - Name: "Perform SCA"
+      ProcessGroup: "Security"
+      ID: "perform-sca-ops"
+      Phase: "Operate"
+      X: 39
+      Y: 10
+    - Name: "Perform DAST"
+      ProcessGroup: "Security"
+      ID: "perform-dast-ops"
+      Phase: "Operate"
+      X: 40
+      Y: 10
+    - Name: "Perform Penetration Test"
+      ProcessGroup: "Security"
+      ID: "perform-penetration-test-ops"
+      Phase: "Operate"
+      X: 41
+      Y: 10
+    - Name: "Monitor Application"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "monitor-application"
+      Phase: "Operate"
+      X: 36
+      Y: 6
+    - Name: "Resolve incidents"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "resolve-incidents"
+      Phase: "Operate"
+      X: 37
+      Y: 6
+    - Name: "Resolve Problems"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "resolve-problems"
+      Phase: "Operate"
+      X: 38
+      Y: 6
+    - Name: "Restore Backups"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "restore-backups"
+      Phase: "Operate"
+      X: 39
+      Y: 6
+    - Name: "Perform Failover"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "perform-failover"
+      Phase: "Operate"
+      X: 40
+      Y: 6
+    - Name: "Manage Feature Toggles"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "manage-feature-toggles"
+      Phase: "Operate"
+      X: 36
+      Y: 7
+    - Name: "Patch Infrastructure"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "patch-infrastructure"
+      Phase: "Operate"
+      X: 37
+      Y: 7
+    - Name: "Tune performance"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "tune-performance"
+      Phase: "Operate"
+      X: 38
+      Y: 7
+    - Name: "Analyze Logs"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "analyze-logs"
+      Phase: "Operate"
+      X: 39
+      Y: 7
+    - Name: "Optimize capacity"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "optimize-capacity"
+      Phase: "Operate"
+      X: 40
+      Y: 7
+    - Name: "Maintain Databases"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "maintain-databases"
+      Phase: "Operate"
+      X: 41
+      Y: 7
+    - Name: "Manage Branches"
+      ProcessGroup: "Software Configuration Management (SCM)"
+      ID: "manage-branches"
+      Phase: "Operate"
+      X: 36
+      Y: 8
+    - Name: "Archive Data"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "archive-data"
+      Phase: "Operate"
+      X: 37
+      Y: 8
+    - Name: "Manage Environments"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "manage-environments"
+      Phase: "Operate"
+      X: 38
+      Y: 8
+    - Name: "Manage Batch Jobs"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "manage-batch-jobs"
+      Phase: "Operate"
+      X: 39
+      Y: 8
+    - Name: "Optimize Infrastructure Costs"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "optimize-infrastructure-costs"
+      Phase: "Operate"
+      X: 40
+      Y: 8
+    - Name: "Manage Service Availability"
+      ProcessGroup: "Application Operation Core Process"
+      ID: "manage-service-availability"
+      Phase: "Operate"
+      X: 41
+      Y: 8
+
+
+ActivityConnections:
+    - ID: 001
+      Source: "define-epic"
+      Target: "register-application"
+      ProcessGroup: "Application Management"
+    - ID: 002
+      Source: "register-application"
+      Target: "manage-application-financials"
+      ProcessGroup: "Application Management"
+    - ID: 003
+      Source: "manage-application-financials"
+      Target: "plan-application-releases"
+      ProcessGroup: "Application Management"
+    - ID: 004
+      Source: "plan-application-releases"
+      Target: "define-third-party-contracts"
+      ProcessGroup: "Application Management"
+    - ID: 005
+      Source: "define-third-party-contracts"
+      Target: "resolve-policy-exceptions"
+      ProcessGroup: "Application Management"
+    - ID: 006
+      Source: "resolve-policy-exceptions"
+      Target: "grant-environment-access"
+      ProcessGroup: "Application Management"
+    - ID: 007
+      Source: "grant-environment-access"
+      Target: "update-application-meta-information"
+      ProcessGroup: "Application Management"
+    - ID: 008
+      Source: "update-application-meta-information"
+      Target: "manage-third-party-contracts"
+      ProcessGroup: "Application Management"
+    - ID: 009
+      Source: "manage-third-party-contracts"
+      Target: "manage-application-service"
+      ProcessGroup: "Application Management"
+    - ID: 010
+      Source: "manage-application-service"
+      Target: "manage-application-risks"
+      ProcessGroup: "Application Management"
+    - ID: 011
+      Source: "manage-application-risks"
+      Target: "raise-policy-exceptions"
+      ProcessGroup: "Application Management"
+    - ID: 012
+      Source: "raise-policy-exceptions"
+      Target: "revalidate-engineer-access"
+      ProcessGroup: "Application Management"
+    - ID: 013
+      Source: "revalidate-engineer-access"
+      Target: "decommission-application"
+      ProcessGroup: "Application Management"
+    - ID: 100
+      Source: "define-epic"
+      Target: "define-regulatory-requirements"
+      ProcessGroup: "Compliance"
+    - ID: 101
+      Source: "define-regulatory-requirements"
+      Target: "perform-risk-assessment"
+      ProcessGroup: "Compliance"
+    - ID: 102
+      Source: "perform-risk-assessment"
+      Target: "implement-controls"
+      ProcessGroup: "Compliance"
+    - ID: 103
+      Source: "implement-controls"
+      Target: "verify-compliance"
+      ProcessGroup: "Compliance"
+    - ID: 104
+      Source: "verify-compliance"
+      Target: "provide-control-evidence"
+      ProcessGroup: "Compliance"
+    - ID: 105
+      Source: "define-regulatory-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Compliance"
+
+    - ID: 200
+      Source: "define-epic"
+      Target: "define-non-functional-requirements"
+      ProcessGroup: "Architecture"
+    - ID: 201 
+      Source: "define-non-functional-requirements"
+      Target: "define-solution-architecture"
+      ProcessGroup: "Architecture"
+    - ID: 202 
+      Source: "define-solution-architecture"
+      Target: "design-solution-architecture"
+      ProcessGroup: "Architecture"
+    - ID: 203 
+      Source: "design-solution-architecture"
+      Target: "review-solution-architecture"
+      ProcessGroup: "Architecture"
+    - ID: 204 
+      Source: "review-solution-architecture"
+      Target: "review-cloud-architecture"
+      ProcessGroup: "Architecture"
+    - ID: 205 
+      Source: "review-cloud-architecture"
+      Target: "manage-technical-debts"
+      ProcessGroup: "Architecture"
+    - ID: 206
+      Source: "define-non-functional-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Architecture"
+    - ID: 207
+      Source: "define-service-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Architecture"
+
+    - ID: 300
+      Source: "define-epic"
+      Target: "validate-epic"
+      ProcessGroup: "Agile Development"
+    - ID: 301
+      Source: "define-epic"
+      Target: "define-features"
+      ProcessGroup: "Agile Development"
+    - ID: 302
+      Source: "define-features"
+      Target: "define-business-requirements"
+      ProcessGroup: "Agile Development"
+    - ID: 303
+      Source: "define-business-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Agile Development"
+
+    - ID: 400
+      Source: "define-epic"
+      Target: "define-operations-requirements"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 401
+      Source: "define-operations-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 402
+      Source: "create-feature-branch"
+      Target: "implement-operations-requirements"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 403
+      Source: "implement-operations-requirements"
+      Target: "update-operational-documentation"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 404
+      Source: "update-operational-documentation"
+      Target: "commit-source-code"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 404
+      Source: "release-to-production"
+      Target: "monitor-application"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 405
+      Source: "monitor-application"
+      Target: "resolve-incidents"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 406
+      Source: "resolve-incidents"
+      Target: "resolve-problems"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 407
+      Source: "resolve-problems"
+      Target: "restore-backups"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 408
+      Source: "restore-backups"
+      Target: "perform-failover"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 409
+      Source: "release-to-production"
+      Target: "manage-feature-toggles"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 410
+      Source: "manage-feature-toggles"
+      Target: "patch-infrastructure"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 411
+      Source: "patch-infrastructure"
+      Target: "tune-performance"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 412
+      Source: "tune-performance"
+      Target: "analyze-logs"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 413
+      Source: "analyze-logs"
+      Target: "optimize-capacity"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 414
+      Source: "optimize-capacity"
+      Target: "maintain-databases"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 415
+      Source: "release-to-production"
+      Target: "manage-branches"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 416
+      Source: "manage-branches"
+      Target: "archive-data"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 417
+      Source: "archive-data"
+      Target: "manage-environments"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 418
+      Source: "manage-environments"
+      Target: "manage-batch-jobs"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 419
+      Source: "manage-batch-jobs"
+      Target: "optimize-infrastructure-costs"
+      ProcessGroup: "Application Operation Core Process"
+    - ID: 420
+      Source: "optimize-infrastructure-costs"
+      Target: "manage-service-availability"
+      ProcessGroup: "Application Operation Core Process"
+
+    - ID: 500
+      Source: "define-epic"
+      Target: "define-security-requirements"
+      ProcessGroup: "Security"
+    - ID: 501
+      Source: "define-security-requirements"
+      Target: "define-user-stories"
+      ProcessGroup: "Security"
+    - ID: 502
+      Source: "define-user-stories"
+      Target: "model-threats"
+      ProcessGroup: "Security"
+    - ID: 503
+      Source: "model-threats"
+      Target: "configure-firewalls"
+      ProcessGroup: "Security"
+    - ID: 504
+      Source: "configure-firewalls"
+      Target: "define-roles"
+      ProcessGroup: "Security"
+    - ID: 505
+      Source: "build-application-artifacts"
+      Target: "perform-sast"
+      ProcessGroup: "Security"
+    - ID: 506
+      Source: "perform-sast"
+      Target: "scan-infrastructure-code"
+      ProcessGroup: "Security"
+    - ID: 507
+      Source: "scan-infrastructure-code"
+      Target: "scan-container-image"
+      ProcessGroup: "Security"
+      Routing: 2
+    - ID: 508
+      Source: "scan-container-image"
+      Target: "perform-sca"
+      ProcessGroup: "Security"
+    - ID: 509
+      Source: "perform-sca"
+      Target: "publish-application-artifacts"
+      ProcessGroup: "Security"
+    - ID: 510
+      Source: "deploy-application"
+      Target: "perform-dast"
+      ProcessGroup: "Security"
+    - ID: 511
+      Source: "perform-dast"
+      Target: "perform-penetration-test"
+      ProcessGroup: "Security"
+    - ID: 512
+      Source: "perform-penetration-test"
+      Target: "obtain-change-approval"
+      ProcessGroup: "Security"
+      Routing: 5
+    - ID: 513
+      Source: "release-to-production"
+      Target: "rotate-secrets"
+      ProcessGroup: "Security"
+    - ID: 514
+      Source: "rotate-secrets"
+      Target: "monitor-security-compliance"
+      ProcessGroup: "Security"
+    - ID: 515
+      Source: "monitor-security-compliance"
+      Target: "perform-sast-ops"
+      ProcessGroup: "Security"
+    - ID: 516
+      Source: "perform-sast-ops"
+      Target: "perform-sca-ops"
+      ProcessGroup: "Security"
+    - ID: 517
+      Source: "perform-sca-ops"
+      Target: "perform-dast-ops"
+      ProcessGroup: "Security"
+    - ID: 518
+      Source: "perform-dast-ops"
+      Target: "perform-penetration-test-ops"
+      ProcessGroup: "Security"
+
+    - ID: 600
+      Source: "define-user-stories"
+      Target: "define-test-strategy"
+      ProcessGroup: "Quality Management"
+    - ID: 601
+      Source: "build-application-artifacts"
+      Target: "perform-static-code-analysis"
+      ProcessGroup: "Quality Management"
+    - ID: 602
+      Source: "perform-static-code-analysis"
+      Target: "perform-unit-test"
+      ProcessGroup: "Quality Management"
+    - ID: 603
+      Source: "perform-unit-test"
+      Target: "publish-application-artifacts"
+      ProcessGroup: "Quality Management"
+    - ID: 604
+      Source: "deploy-application"
+      Target: "perform-sit"
+      ProcessGroup: "Quality Management"
+    - ID: 605
+      Source: "perform-sit"
+      Target: "perform-load-and-performance-test"
+      ProcessGroup: "Quality Management"
+    - ID: 606
+      Source: "perform-load-and-performance-test"
+      Target: "perform-uat"
+      ProcessGroup: "Quality Management"
+    - ID: 607
+      Source: "perform-uat"
+      Target: "perform-operational-acceptance-test"
+      ProcessGroup: "Quality Management"
+    - ID: 608
+      Source: "perform-operational-acceptance-test"
+      Target: "manage-transition-to-operations"
+      ProcessGroup: "Quality Management"
+    - ID: 609
+      Source: "manage-transition-to-operations"
+      Target: "obtain-change-approval"
+      ProcessGroup: "Quality Management"
+      Routing: 2
+    - ID: 610
+      Source: "obtain-change-approval"
+      Target: "perform-deployment-verification-test"
+      ProcessGroup: "Quality Management"
+    - ID: 611
+      Source: "perform-deployment-verification-test"
+      Target: "release-to-production"
+      ProcessGroup: "Quality Management"
+
+    - ID: 700
+      Source: "define-user-stories"
+      Target: "setup-development-environment"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 701
+      Source: "setup-development-environment"
+      Target: "create-feature-branch"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 702
+      Source: "create-feature-branch"
+      Target: "write-application-code"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 703
+      Source: "write-application-code"
+      Target: "define-sbom"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 704
+      Source: "define-sbom"
+      Target: "perform-static-code-analysis-ide"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 705
+      Source: "perform-static-code-analysis-ide"
+      Target: "perform-sast-ide"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 706
+      Source: "perform-sast-ide"
+      Target: "perform-sca-ide"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 707
+      Source: "perform-sca-ide"
+      Target: "perform-unit-test-ide"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 708
+      Source: "create-feature-branch"
+      Target: "write-infrastrucutre-code"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 709
+      Source: "create-feature-branch"
+      Target: "design-api"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 710
+      Source: "write-infrastrucutre-code"
+      Target: "configure-dns"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 711
+      Source: "perform-unit-test-ide"
+      Target: "update-documentation"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 712
+      Source: "configure-dns"
+      Target: "update-documentation"
+      ProcessGroup: "Application Development Core Process"
+      Routing: 5
+    - ID: 712
+      Source: "design-api"
+      Target: "update-documentation"
+      ProcessGroup: "Application Development Core Process"
+      Routing: 6
+    - ID: 713
+      Source: "update-documentation"
+      Target: "commit-source-code"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 714
+      Source: "commit-source-code"
+      Target: "build-application-artifacts"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 715
+      Source: "build-application-artifacts"
+      Target: "publish-application-artifacts"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 716
+      Source: "publish-application-artifacts"
+      Target: "deploy-infrastructure"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 717
+      Source: "deploy-infrastructure"
+      Target: "deploy-application"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 718
+      Source: "deploy-application"
+      Target: "document-release-notes"
+      ProcessGroup: "Application Development Core Process"
+    - ID: 719
+      Source: "document-release-notes"
+      Target: "obtain-change-approval"
+      ProcessGroup: "Application Development Core Process"
+
+
+

@@ -1,0 +1,53 @@
+Phases:
+    - Name: "Continuous Exploration"
+      Width: 3
+    - Name: "Plan"
+      Width: 3
+    - Name: "Develop"
+      Width: 3
+    - Name: "Continuous Integration"
+      Width: 3
+    - Name: "Continuous Deployment"
+      Width: 3
+    - Name: "Operate"
+      Width: 3
+
+ProcessGroups:
+    - Name: "Application Management"
+      Color: "#C92D39"
+    - Name: "Agile Development"
+      Color: "#FCC438"
+    - Name: "Compliance"
+      Color: "#834187"
+    - Name: "Architecture"
+      Color: "#EF8D22"
+    - Name: "Application Development Core Process"
+      Color: "#19967D"
+    - Name: "Application Operation Core Process"
+      Color: "#0C7CBA"
+    - Name: "Software Configuration Management (SCM)"
+      Color: "#7AB648"
+    - Name: "Quality Management"
+      Color: "#DE5F85"
+    - Name: "Security"
+      Color: "#C1E4F7"
+
+Activities:
+    - Name: "Start here"
+      ProcessGroup: "Application Development Core Process"
+      ID: "start-here"
+      Phase: "Continuous Exploration"
+      X: 1
+      Y: 1
+    - Name: "Continue here"
+      ProcessGroup: "Application Development Core Process"
+      ID: "continue-here"
+      Phase: "Plan"
+      X: 2
+      Y: 1
+
+ActivityConnections:
+    - ID: 001
+      Source: "start-here"
+      Target: "continue-here"
+      ProcessGroup: "Application Development Core Process"
