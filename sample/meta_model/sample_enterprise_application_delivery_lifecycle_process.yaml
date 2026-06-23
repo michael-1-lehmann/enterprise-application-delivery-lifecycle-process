@@ -1,14 +1,13 @@
+MetaInformation:
+    - Name: "Enterprise Application Development Lifecycle Reference Process"
+      Height: 10
+
 Phases:
     - Name: "Continuous Exploration"
-      Width: 3
     - Name: "Plan"
-      Width: 4
     - Name: "Develop"
-      Width: 10
     - Name: "Continuous Integration"
-      Width: 6
     - Name: "Continuous Deployment"
-      Width: 11
     - Name: "Operate"
       Width: 7
 

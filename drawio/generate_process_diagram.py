@@ -1,3 +1,4 @@
+# -i .\enterprise-application-delivery-lifecycle-process\sample\meta_model\sample_enterprise_application_delivery_lifecycle_process.yaml -o .\enterprise-application-delivery-lifecycle-process\sample\diagram\sample-enterprise-application-delivery-lifecycle-process.drawio
 #!/usr/bin/env python3
 """Generate a Draw.io XML file matching SDLC Process Core.drawio."""
 
@@ -21,17 +22,17 @@ DRAWIO_XML_TEMPLATE_HEADER = '''<mxfile host="65bd71144e">
                  <mxCell id="0"/>
                 <mxCell id="1" value="Main" style="locked=1;" parent="0"/>
 
-                <mxCell id="re-hWYANieQfaZoZakJm-001" parent="1" style="html=1;whiteSpace=wrap;fillColor=none;container=1;rounded=1;absoluteArcSize=1;arcSize=24;fontSize=11;spacing=0;strokeOpacity=100;fillOpacity=0;strokeWidth=1.2;verticalAlign=top;" value="&lt;span style=&quot;font-size: 72px; font-weight: 700; text-align: left;&quot;&gt;Enterprise Application Development Lifecycle Reference Process&lt;/span&gt;" vertex="1">
-                    <mxGeometry x="0" y="0" width="{width}" height="1150" as="geometry"/>
+                <mxCell id="re-hWYANieQfaZoZakJm-001" parent="1" style="html=1;whiteSpace=wrap;fillColor=none;container=1;rounded=1;absoluteArcSize=1;arcSize=24;fontSize=11;spacing=0;strokeOpacity=100;fillOpacity=0;strokeWidth=1.2;verticalAlign=top;" value="&lt;span style=&quot;font-size: 72px; font-weight: 700; text-align: left;&quot;&gt;{name}&lt;/span&gt;" vertex="1">
+                    <mxGeometry x="0" y="0" width="{width}" height="{height2}" as="geometry"/>
                 </mxCell>
                 <mxCell id="re-hWYANieQfaZoZakJm-002" value="&lt;span style=&quot;font-size: 24px; font-weight: 700;&quot;&gt;Legend&lt;/span&gt;" style="html=1;whiteSpace=wrap;;fontSize=11;spacing=0;strokeColor=#666666;strokeOpacity=100;fillOpacity=100;rounded=1;absoluteArcSize=1;arcSize=12;shadow=1;fillColor=#ffffff;strokeWidth=1.2;labelPosition=center;verticalLabelPosition=middle;align=left;verticalAlign=top;spacingTop=8;spacingLeft=15;" parent="re-hWYANieQfaZoZakJm-001" vertex="1">
-                    <mxGeometry x="40" y="100" width="255" height="1000" as="geometry"/>
+                    <mxGeometry x="40" y="100" width="255" height="{height1}" as="geometry"/>
                 </mxCell>
 
 '''
 DRAWIO_XML_TEMPLATE_PHASE = '''
                <mxCell id="re-hWYANieQfaZoZakJm-{ref}" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font&gt;&lt;b&gt;{name}&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#E6E6E6;container=1;rounded=1;absoluteArcSize=1;arcSize=24;fontSize=24;spacing=0;strokeColor=#666666;strokeOpacity=100;fillOpacity=100;strokeWidth=1.2;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;spacingTop=8;" parent="re-hWYANieQfaZoZakJm-001" vertex="1">
-                    <mxGeometry x="{x}" y="100" width="{width}" height="1000" as="geometry"/>
+                    <mxGeometry x="{x}" y="100" width="{width}" height="{height}" as="geometry"/>
                 </mxCell>
 '''
 
@@ -55,19 +56,19 @@ DEFAULT_ACTIVITIES = [
  ]
 
 DRAWIO_XML_TEMPLATE_PROCESSGROUPS = '''
-                <mxCell id="re-hWYANieQfaZoZakJm-{ref1}" value="{group}" style="html=1;whiteSpace=wrap;fontSize=11;fontColor=#000000;align=left;spacing=0;verticalAlign=middle;strokeOpacity=100;fillOpacity=100;fillColor=none;strokeWidth=3.5999999999999996;strokeColor=none;" vertex="1" parent="re-hWYANieQfaZoZakJm-001">
-                    <mxGeometry x="113.43588925629517" y="{ypos1}" width="150" height="40" as="geometry"/>
+                <mxCell id="re-hWYANieQfaZoZakJm-{ref1}" value="{group}" style="html=1;whiteSpace=wrap;fontSize=11;fontColor=#000000;align=left;spacing=0;verticalAlign=middle;strokeOpacity=100;fillOpacity=100;fillColor=none;strokeWidth=3.6;strokeColor=none;" vertex="1" parent="re-hWYANieQfaZoZakJm-001">
+                    <mxGeometry x="113" y="{ypos1}" width="150" height="40" as="geometry"/>
                 </mxCell>
                 <mxCell id="re-hWYANieQfaZoZakJm-{ref2}" value="" style="html=1;whiteSpace=wrap;;fontSize=11;align=center;spacingTop=9;spacing=5;verticalAlign=bottom;strokeOpacity=0;fillOpacity=100;rounded=1;absoluteArcSize=1;arcSize=109.2;fillColor={color};strokeWidth=0.6;strokeColor={color};" parent="re-hWYANieQfaZoZakJm-001" vertex="1">
-                    <mxGeometry x="55.73952657838265" y="{ypos2}" width="25" height="25" as="geometry"/>
+                    <mxGeometry x="55" y="{ypos2}" width="25" height="25" as="geometry"/>
                 </mxCell>
                 <mxCell id="re-hWYANieQfaZoZakJm-{ref3}" value="" style="html=1;whiteSpace=wrap;;fontSize=11;align=center;spacingTop=9;spacing=5;verticalAlign=bottom;strokeOpacity=0;fillOpacity=100;rounded=1;absoluteArcSize=1;arcSize=109.2;fillColor=#ffffff;strokeWidth=0.6;strokeColor={color};" parent="re-hWYANieQfaZoZakJm-001" vertex="1">
-                    <mxGeometry x="62.03367523415494" y="{ypos3}" width="12.5" height="12.5" as="geometry"/>
+                    <mxGeometry x="62" y="{ypos3}" width="12.5" height="12.5" as="geometry"/>
                 </mxCell>
                 <mxCell id="re-hWYANieQfaZoZakJm-{ref4}" value="" style="html=1;jettySize=18;fontSize=11;strokeColor={color};strokeOpacity=100;strokeWidth=6;rounded=1;arcSize=0;startArrow=none;endArrow=none;" parent="re-hWYANieQfaZoZakJm-001" edge="1">
                     <mxGeometry width="100" height="100" relative="1" as="geometry">
-                        <mxPoint x="77.76904687358562" y="{ypos4}" as="sourcePoint"/>
-                        <mxPoint x="96.65149284090243" y="{ypos4}" as="targetPoint"/>
+                        <mxPoint x="77" y="{ypos4}" as="sourcePoint"/>
+                        <mxPoint x="96" y="{ypos4}" as="targetPoint"/>
                     </mxGeometry>
                 </mxCell>
 '''
@@ -482,12 +483,10 @@ def add_process_groups(process_groups: list[dict[str, str]]) -> str:
         ref += 4
     return ''.join(result)
 
-def add_phases(phases: list[dict[str, str]]) -> str:
+def add_header(metainformation: list[dict[str, str]], phases: list[dict[str, str]], process_groups: list[dict[str, str]], activities: list[dict[str, str]]) -> str:
     """Return a Draw.io XML fragment for the given phases box."""
     result: list[str] = []
     xpos: int = 315
-    width: int = 0
-    ref: int = 3
 
     # Compute total width as the sum of all phase widths (in pixels)
     totalwidth = 0
@@ -496,12 +495,35 @@ def add_phases(phases: list[dict[str, str]]) -> str:
         totalwidth += phase_w
 
     totalwidth= xpos + totalwidth*CELL_X + 30
+    height = max((int)(metainformation[0]['Height']),(int)(metainformation[0]['MaxActivityRow']))
 
+
+    height1 = height*CELL_Y+0.5*CELL_Y+START_Y
+    height2=  (int)(metainformation[0]['NumberOfProcessGroups'])*40+START_Y
+
+    name = metainformation[0]['Name'] if metainformation else 'Missing Name'
     result.append(
         DRAWIO_XML_TEMPLATE_HEADER.format(
-            width=totalwidth
+            width=totalwidth,
+            name=name,
+            height1=max(height1, height2),
+            height2=max(height1, height2)+150
         )
     )
+
+    return ''.join(result)
+
+def add_phases(metainformation: list[dict[str, str]], phases: list[dict[str, str]]) -> str:
+    """Return a Draw.io XML fragment for the given phases box."""
+    result: list[str] = []
+    xpos: int = 315
+    width: int = 0
+    ref: int = 3
+
+    height = max((int)(metainformation[0]['Height']),(int)(metainformation[0]['MaxActivityRow']))
+
+    height1 = height*CELL_Y+0.5*CELL_Y+START_Y
+    height2=  (int)(metainformation[0]['NumberOfProcessGroups'])*40+START_Y
 
     for phase in phases:
         width = int(phase['Width'])*CELL_X-10
@@ -510,6 +532,7 @@ def add_phases(phases: list[dict[str, str]]) -> str:
                 ref=ref,
                 name=phase['Name'],
                 width=width,
+                height=max(height1,height2),
                 x=xpos
             )
         )
@@ -551,6 +574,10 @@ def get_process_groups(data: dict[str, Any]) -> list[dict[str, str]]:
         process_groups.append({'Name': name, 'Color': color})
     return process_groups
 
+def count_process_groups(process_groups: list[dict[str, str]]) -> int:
+    """Return the number of process groups."""
+    return len(process_groups)
+
 def get_activities(data: dict[str, Any]) -> list[dict[str, str]]:
     activities = data.get('Activities')
     if activities is None:
@@ -585,6 +612,15 @@ def get_activities(data: dict[str, Any]) -> list[dict[str, str]]:
         result.append({'Name': name, 'ProcessGroup': processgroup, 'ID': id, 'Phase': phase, 'X': x, 'Y': y})
     return result
 
+
+def get_max_activity_row(activities: list[dict[str, str]]) -> int:
+    """Return the maximum Y position from the given activities list.
+    
+    Returns 0 if activities list is empty.
+    """
+    if not activities:
+        return 0
+    return max(int(activity.get('Y', 0)) for activity in activities)
 
 def get_activityconnections(data: dict[str, Any]) -> list[dict[str, str]]:
     """Return a list of activity connection mappings from the YAML data.
@@ -638,14 +674,107 @@ def get_phases(data: dict[str, Any]) -> list[dict[str, str]]:
             if 'name' not in normalized:
                 raise ValueError('Each Phases item must be a string or mapping with a Name key')
             name = str(normalized['name'])
-            width = str(normalized['width'])
+            width = str(normalized.get('width', 0))
         elif isinstance(item, str):
             name = item
+            width = '0'
         else:
             raise ValueError('Each Phases item must be a string or mapping with a Name key')
 
         result.append({'Name': name, 'Width': width})
     return result
+
+
+def get_meta_information(data: dict[str, Any]) -> list[dict[str, str]]:
+    """Return a list of normalized MetaInformation entries from the YAML data.
+
+    If no MetaInformation key is present, an empty list is returned.
+    MetaInformation may be a single mapping or a list of mappings.
+    Each entry must contain a Name key and is normalized to string values.
+    """
+    meta_information = data.get('MetaInformation')
+    if meta_information is None:
+        return []
+    if isinstance(meta_information, dict):
+        meta_information = [meta_information]
+    elif not isinstance(meta_information, list):
+        raise ValueError('MetaInformation must be a mapping or list')
+
+    result: list[dict[str, str]] = []
+    for item in meta_information:
+        if isinstance(item, dict):
+             normalized = {key.lower(): value for key, value in item.items()}
+             name = str(normalized['name'])
+             height = str(normalized.get('height', 0))
+        elif isinstance(item, str):
+            name = 'Missing title'
+            height = '0'
+        else:
+            raise ValueError('Each MetaInformation item must be a string or mapping')
+
+        result.append({'Name': name, 'Height': height})
+
+    return result
+
+def get_max_activity_x_for_phase(activities: list[dict[str, str]], phase: str) -> int:
+    """Return the maximum X position for activities in the given phase.
+    
+    Returns 0 if no matching activities are found.
+    """
+    phase_x_values = [
+        int(activity.get('X', 0))
+        for activity in activities
+        if str(activity.get('Phase', '')).strip() == phase
+    ]
+    return max(phase_x_values, default=0)
+
+
+def calculate_width_for_phases(activities: list[dict[str, str]], phases: list[dict[str, str]]) -> dict[str, int]:
+    """Return the maximum X position for every phase defined in phases."""
+    result: dict[str, int] = {}
+    width: int = 0
+
+    for phase in phases:
+        phase_name = str(phase.get('Name', '')).strip()
+        if not phase_name:
+            continue
+        max_x = get_max_activity_x_for_phase(activities, phase_name)
+        result[phase_name] = max_x - width
+        width = max_x
+
+    return result
+
+
+def enhance_meta_information(metainformation: list[dict[str, str]], process_groups: list[dict[str, str]], phases: list[dict[str, str]], activities: list[dict[str, str]]) -> list[dict[str, str]]:
+    """Add additional meta-information derived from process groups and activities.
+    
+    Adds the process group count, maximum activity Y position, and maximum X
+    for activities in the Continuous Exploration phase to the first
+    metainformation entry.
+    """
+    if not metainformation:
+        return metainformation
+    
+    process_group_count = count_process_groups(process_groups)
+    metainformation[0]['NumberOfProcessGroups'] = str(process_group_count)
+
+    max_activity_row = get_max_activity_row(activities)
+    metainformation[0]['MaxActivityRow'] = str(max_activity_row)
+
+    phase_widths = calculate_width_for_phases(activities, phases)
+    
+    i: int = 0
+    for phase in phases:
+        defined_phase_width = int(phase.get('Width', 0))
+        calculated_phase_width = phase_widths[phase.get('Name')]
+        max_phase_width = max(defined_phase_width, calculated_phase_width)
+        if (defined_phase_width!=0 and defined_phase_width<calculated_phase_width): 
+            print(f'Defined Width for {phase.get('Name')} changed from {defined_phase_width} to {calculated_phase_width}')
+
+        phase['Width'] = max_phase_width
+
+    return metainformation
+
 
 def write_drawio(path: Path, xml: str) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
@@ -672,12 +801,17 @@ def main() -> None:
     args = parse_args()
     input_path = Path(args.input)
     yaml_data = load_yaml(input_path)
+    metainformation = get_meta_information(yaml_data)
     phases = get_phases(yaml_data)
     process_groups = get_process_groups(yaml_data)
     activities = get_activities(yaml_data)
     activityconnections = get_activityconnections(yaml_data)
     output_path = Path(args.output)
-    write_drawio(output_path, add_phases(phases)+
+
+    enhance_meta_information(metainformation, process_groups, phases, activities)
+
+    write_drawio(output_path, add_header(metainformation, phases, process_groups, activities)+
+                              add_phases(metainformation, phases)+
                               add_process_groups(process_groups) +
                               DRAWIO_XML_TEMPLATE_ACTIVITIES_LAYER +
                               add_activityconnections2(activityconnections, activities, process_groups) +

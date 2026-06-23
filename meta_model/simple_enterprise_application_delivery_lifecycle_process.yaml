@@ -1,3 +1,5 @@
+MetaInformation:
+    - Name: "Simple Application Development Lifecycle Reference Process"
 Phases:
     - Name: "Continuous Exploration"
       Width: 3
