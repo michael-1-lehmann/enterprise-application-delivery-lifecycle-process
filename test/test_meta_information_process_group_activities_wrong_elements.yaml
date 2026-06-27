@@ -1,0 +1,35 @@
+MetaInformation:
+    - Name: "Test"
+      Height: 1
+
+ProcessGroups:
+    - Name: "Test"
+      Color: "#C92D39"
+
+Activities:
+    - Name: "Test"
+      ProcessGroup: "Test"
+      ID: "Test"
+      Phase: "Test"
+      X: 1
+      Y: 1
+    - Name: "Test2"
+      WrongElement: "Test"
+      ProcessGroup: "Test2"
+      ID: "Test2"
+      Phase: "Test"
+      X: 2
+      Y: 1
+    - Name: "Test2"
+      ProcessGroup: "Test"
+      ID: "Test"
+      Phase: "Test"
+      X: 2
+      Y: 1
+    - WrongElement: "Test"
+      ProcessGroup: "Test2"
+      ID: "Test2"
+      Phase: "Test"
+      X: 2
+      Y: 1
+

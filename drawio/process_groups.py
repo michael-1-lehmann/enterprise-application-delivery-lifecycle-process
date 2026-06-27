@@ -47,23 +47,26 @@ def add_process_group_layer(process_groups: list[dict[str, str]]) -> str:
     return ''.join(result)
 
 def get_process_groups(data: dict[str, Any]) -> list[dict[str, str]]:
+    process_groups: list[dict[str, str]] = []
+
     groups = data.get('ProcessGroups')
     if groups is None:
-        raise ValueError('YAML must contain a top-level ProcessGroups key')
+        return process_groups
     if not isinstance(groups, list):
-        raise ValueError('ProcessGroups must be a list')
+        return process_groups
 
-    process_groups: list[dict[str, str]] = []
     for index, item in enumerate(groups):
         if isinstance(item, dict):
             normalized = {key.lower(): value for key, value in item.items()}
             if 'name' not in normalized:
-                raise ValueError('Each ProcessGroups item must be a string or mapping with a Name key')
+                print(f'ProcessGroups contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+                continue
 
             name = str(normalized['name'])
             color = str(normalized.get('color', ''))
         else:
-            raise ValueError('Each ProcessGroups item must be a string or mapping with a Name key')
+            print(f'ProcessGroups contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+            continue
 
         process_groups.append({'Name': name, 'Color': color})
     return process_groups

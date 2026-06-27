@@ -1,0 +1,45 @@
+MetaInformation:
+    - Name: "Test"
+      Height: 1
+
+ProcessGroups:
+    - Name: "Test"
+      Color: "#C92D39"
+
+Activities:
+    - Name: "Test"
+      ProcessGroup: "Test"
+      ID: "Test"
+      Phase: "Test"
+      X: 1
+      Y: 1
+    - Name: "Test2"
+      ProcessGroup: "Test"
+      ID: "Test2"
+      Phase: "Test"
+      X: 2
+      Y: 1
+
+ActivityConnections:
+    - Source: "Test"
+      Target: "Test2"
+      ProcessGroup: "Test"
+    - Source: "Test"
+      Target: "Test"
+      ProcessGroup: "Test"
+    - WrongSource: "Test"
+      Target: "Test2"
+      ProcessGroup: "Test"
+    - Source: "Test"
+      Target: "Test2"
+      ProcessGroup: "Test2"
+    - Source: "Test3"
+      Target: "Test"
+      ProcessGroup: "Test"
+    - Source: "Test"
+      Target: "Test3"
+      ProcessGroup: "Test"
+    - Source: "Test"
+      Target: "Test2"
+      ProcessGroup: "Test"
+      Routing: Test

@@ -16,25 +16,26 @@ def get_phases(data: dict[str, Any]) -> list[dict[str, str]]:
     Each phase is normalized to a mapping with a `Name` key. If no `Phases`
     key is present an empty list is returned.
     """
+    result: list[dict[str, str]] = []
+
     phases = data.get('Phases')
     if phases is None:
-        return []
+        return result
     if not isinstance(phases, list):
-        raise ValueError('Phases must be a list')
+        return result
 
-    result: list[dict[str, str]] = []
     for index, item in enumerate(phases):
         if isinstance(item, dict):
             normalized = {key.lower(): value for key, value in item.items()}
             if 'name' not in normalized:
-                raise ValueError('Each Phases item must be a string or mapping with a Name key')
+                print(f'Phases contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+                continue
+
             name = str(normalized['name'])
             width = str(normalized.get('width', 0))
-        elif isinstance(item, str):
-            name = item
-            width = '0'
         else:
-            raise ValueError('Each Phases item must be a string or mapping with a Name key')
+            print(f'Phases contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+            continue
 
         result.append({'Name': name, 'Width': width})
     return result

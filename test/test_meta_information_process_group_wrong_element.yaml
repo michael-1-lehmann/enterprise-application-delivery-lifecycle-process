@@ -1,0 +1,9 @@
+MetaInformation:
+    - Name: "Test"
+
+ProcessGroups:
+    - Name: "Test"
+      Color: "#C92D39"
+      WrongElement: "Test2"
+    - WrongName: "Test2"
+      Color: "#C92D39"

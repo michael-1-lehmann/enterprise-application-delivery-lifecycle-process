@@ -1,0 +1,7 @@
+MetaInformation:
+    - Name: "Test"
+
+ProcessGroups:
+    - Name: "Test"
+      Color: "#C92D39"
+

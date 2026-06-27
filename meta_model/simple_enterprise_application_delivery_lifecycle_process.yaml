@@ -49,7 +49,6 @@ Activities:
       Y: 1
 
 ActivityConnections:
-    - ID: 001
-      Source: "start-here"
+    - Source: "start-here"
       Target: "continue-here"
       ProcessGroup: "Application Development Core Process"

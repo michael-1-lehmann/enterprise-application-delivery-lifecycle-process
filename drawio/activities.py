@@ -97,46 +97,57 @@ DRAWIO_XML_TEMPLATE_CONNECTION_OR = '''
         </mxCell>
 '''
 def get_activities(data: dict[str, Any]) -> list[dict[str, str]]:
+    result: list[dict[str, str]] = []
+    used_ids: set[str] = set()
+
     activities = data.get('Activities')
     if activities is None:
-        raise ValueError('YAML must contain a top-level Activities key')
+        return result
     if not isinstance(activities, list):
-        raise ValueError('Activities must be a list')
+        return result
     
-    result: list[dict[str, str]] = []
     for index,item in enumerate(activities):
         if isinstance(item, dict):
             normalized = {key.lower(): value for key, value in item.items()}
             if 'name' not in normalized:
-                raise ValueError('Each Activity item must have a Name key')
-            
+                print(f'Activities contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+                continue
 
-            name = str(normalized['name'] or DEFAULT_ACTIVITIES[index]['Name'])
-            processgroup = str(normalized.get('processgroup') or DEFAULT_ACTIVITIES[index]['ProcessGroup'])
-            id = str(normalized.get('id') or DEFAULT_ACTIVITIES[index]['ID'])
-            phase = str(normalized.get('phase') or DEFAULT_ACTIVITIES[index]['PHASE'])
-            x = str(normalized.get('x') or DEFAULT_ACTIVITIES[index]['X'])
-            y = str(normalized.get('y') or DEFAULT_ACTIVITIES[index]['Y'])
+            name = str(normalized['name'])
+            processgroup = str(normalized.get('processgroup', ''))
+            id = str(normalized.get('id', ''))
+            phase = str(normalized.get('phase', ''))
+            x = str(normalized.get('x', ''))
+            y = str(normalized.get('y', ''))
+
+            if id and id in used_ids:
+                print(f'Activity with Name {name} has a duplicate ID {id}. Ignoring this item.')
+                continue
+            if id:
+                used_ids.add(id)
         else:
-            raise ValueError('Each Activity item must be a mapping with a Name key')
+            print(f'Activities contains a list item with name {item}. Only list items with key "Name" are allowed. Ignoring this item.')
+            continue
     
         result.append({'Name': name, 'ProcessGroup': processgroup, 'ID': id, 'Phase': phase, 'X': x, 'Y': y})
     return result
 
 def get_activityconnections(data: dict[str, Any]) -> list[dict[str, str]]:
     """Return a list of activity connection mappings from the YAML data."""
+    result: list[dict[str, str]] = []
+
     connections = data.get('ActivityConnections')
     if connections is None:
-        return []
+        return result
     if not isinstance(connections, list):
-        raise ValueError('ActivityConnections must be a list')
+        return result
 
-    result: list[dict[str, str]] = []
     for index, item in enumerate(connections):
         if isinstance(item, dict):
             normalized = {key.lower(): value for key, value in item.items()}
             if 'source' not in normalized or 'target' not in normalized:
-                raise ValueError('Each ActivityConnections item must contain Source and Target keys')
+                print(f'ActivityConnections contains a list item {item} that lacks a source or target field. Only list items with keys "Source" and "Target" are allowed. Ignoring this item.')
+                continue
 
             conn_id = str(normalized.get('id') or index + 1)
             source = str(normalized.get('source'))
@@ -145,9 +156,15 @@ def get_activityconnections(data: dict[str, Any]) -> list[dict[str, str]]:
             routing = str(routing_value if routing_value is not None else 1)
             processgroup = str(normalized.get('processgroup'))
         else:
-            raise ValueError('Each ActivityConnections item must be a mapping with Source and Target')
+            print(f'ActivityConnections contains a list item {item} that is not a mapping. Ignoring this item.')
+            continue
 
-        result.append({'ID': conn_id, 'Source': source, 'Target': target, 'ProcessGroup': processgroup, 'Routing': routing})
+        if (source == target):
+            print(f'ActivityConnections contains a connection {item} that has the same source and target. Ignoring this item.')
+            continue
+
+        result.append({'Source': source, 'Target': target, 'ProcessGroup': processgroup, 'Routing': routing})
+#        result.append({'ID': conn_id, 'Source': source, 'Target': target, 'ProcessGroup': processgroup, 'Routing': routing})
     return result
 
 
@@ -158,13 +175,26 @@ def add_activityconnections(activityconnections: list[dict[str, str]], activitie
     for connection in activityconnections:
         source_id = connection['Source']
         target_id = connection['Target']
-        routing = int(connection['Routing'])
+        try:
+            routing = int(connection.get('Routing', 1))
+        except (TypeError, ValueError):
+            print(f'ActivityConnections contains a connection {connection} that has an invalid routing value. Defaulting to 1.')
+            routing = 1
         source_activity = next((a for a in activities if a.get('ID') == source_id), None)
         target_activity = next((a for a in activities if a.get('ID') == target_id), None)
         processgroup = next((g for g in process_groups if g.get('Name') == connection.get('ProcessGroup')), None)
 
-        if source_activity is None or target_activity is None or processgroup is None:
-            raise ValueError(f'Invalid activity connection: {connection}')
+        if source_activity is None:
+            print(f'ActivityConnections contains a connection {connection} that refers to a non-existent source activity. Ignoring this item.')
+            continue
+
+        if target_activity is None:
+            print(f'ActivityConnections contains a connection {connection} that refers to a non-existent target activity. Ignoring this item.')
+            continue
+
+        if processgroup is None:
+            print(f'ActivityConnections contains a connection {connection} that refers to a non-existent process group. Ignoring this item.')
+            processgroup = process_groups[0] if process_groups else {'Color': '#000000'}  # Default to first group or black if none 
 
         source_x = int(source_activity.get('X', 1))
         source_y = int(source_activity.get('Y', 1))
@@ -401,15 +431,8 @@ def add_activities(activities: list[dict[str, str]], process_groups: list[dict[s
             process_group = next((g for g in process_groups if g.get('Name') == group_name), None)
         # If not found, try interpreting the ProcessGroup as an index
         if process_group is None:
-            try:
-                idx = int(group_name) if group_name is not None else None
-            except Exception:
-                idx = None
-            if idx is not None and 0 <= idx < len(process_groups):
-                process_group = process_groups[idx]
-        # Final fallback to first defined process group or default
-        if process_group is None:
-            process_group = process_groups[0] if process_groups else DEFAULT_PROCESS_GROUPS[0]
+           print(f'Activity {activity.get("Name", "Unknown")} contains an unknown ProcessGroup {group_name}. Defaulting to the first process group or black if none are defined.')
+           process_group = process_groups[0] if process_groups else {'Color': '#000000'}  # Default to first group or black if none 
 
         xpos: int = START_X + int(activity.get('X', 1)) * CELL_X
         ypos: int = START_Y + int(activity.get('Y', 1)) * CELL_Y
@@ -452,6 +475,6 @@ def get_max_activity_row(activities: list[dict[str, str]]) -> int:
 def add_activities_layer(activityconnections: list[dict[str, str]], activities: list[dict[str, str]], process_groups: list[dict[str, str]], START_X: int, START_Y: int) -> str:
     result: list[str] = []
     result.append(DRAWIO_XML_TEMPLATE_ACTIVITIES_LAYER)
-    result.append(add_activityconnections(activityconnections, activities, process_groups, START_X, START_Y))
     result.append(add_activities(activities, process_groups, START_X, START_Y))
+    result.append(add_activityconnections(activityconnections, activities, process_groups, START_X, START_Y))
     return ''.join(result)

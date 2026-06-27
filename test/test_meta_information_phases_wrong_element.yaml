@@ -1,0 +1,10 @@
+MetaInformation:
+    - Name: "Test"
+
+Phases:
+    - Name: "Test"
+      Width: 3
+      WrongElement: "Test2"
+    - WrongName: "Test2"
+      Color: "#C92D39"
+

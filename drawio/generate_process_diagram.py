@@ -7,9 +7,14 @@ import argparse
 from pathlib import Path
 from typing import Any
 
-import phases as phases_module
-import activities as activities_module
-import process_groups as process_groups_module
+try:
+    from . import phases as phases_module
+    from . import activities as activities_module
+    from . import process_groups as process_groups_module
+except ImportError:
+    import phases as phases_module
+    import activities as activities_module
+    import process_groups as process_groups_module
 
 try:
     import yaml
@@ -55,7 +60,7 @@ def add_header(metainformation: list[dict[str, str]], phases: list[dict[str, str
         phase_w = int(phase.get('Width', 1))
         totalwidth += phase_w
 
-    totalwidth= xpos + totalwidth*activities_module.CELL_X + 30
+    totalwidth= max(xpos + totalwidth*activities_module.CELL_X + 30, 1000)
     height = max((int)(metainformation[0]['Height']),(int)(metainformation[0]['MaxActivityRow']))
 
 
@@ -81,27 +86,29 @@ def get_meta_information(data: dict[str, Any]) -> list[dict[str, str]]:
     MetaInformation may be a single mapping or a list of mappings.
     Each entry must contain a Name key and is normalized to string values.
     """
+    result: list[dict[str, str]] = []
+
     meta_information = data.get('MetaInformation')
     if meta_information is None:
-        return []
+        result.append({'Name': 'Missing Name', 'Height': '0'})
+        return result
     if isinstance(meta_information, dict):
         meta_information = [meta_information]
     elif not isinstance(meta_information, list):
         raise ValueError('MetaInformation must be a mapping or list')
 
-    result: list[dict[str, str]] = []
-    for item in meta_information:
-        if isinstance(item, dict):
-             normalized = {key.lower(): value for key, value in item.items()}
-             name = str(normalized['name'])
-             height = str(normalized.get('height', 0))
-        elif isinstance(item, str):
-            name = 'Missing title'
-            height = '0'
-        else:
-            raise ValueError('Each MetaInformation item must be a string or mapping')
+    item = meta_information[0]
+    if isinstance(item, dict):
+            normalized = {key.lower(): value for key, value in item.items()}
+            name = str(normalized['name'])
+            height = str(normalized.get('height', 0))
+    elif isinstance(item, str):
+        name = 'Missing title'
+        height = '0'
+    else:
+        raise ValueError('Each MetaInformation item must be a string or mapping')
 
-        result.append({'Name': name, 'Height': height})
+    result.append({'Name': name, 'Height': height})
 
     return result
 
@@ -180,17 +187,13 @@ def parse_args() -> argparse.Namespace:
     )
     return parser.parse_args()
 
-
-def main() -> None:
-    args = parse_args()
-    input_path = Path(args.input)
+def generate_drawio(input_path: Path, output_path: Path) -> None:
     yaml_data = load_yaml(input_path)
     metainformation = get_meta_information(yaml_data)
     phases = phases_module.get_phases(yaml_data)
     process_groups = process_groups_module.get_process_groups(yaml_data)
     activities = activities_module.get_activities(yaml_data)
     activityconnections = activities_module.get_activityconnections(yaml_data)
-    output_path = Path(args.output)
 
     enhance_meta_information(metainformation, process_groups, phases, activities)
 
@@ -200,6 +203,12 @@ def main() -> None:
                               activities_module.add_activities_layer(activityconnections, activities, process_groups, START_X, START_Y) +
                               DRAWIO_XML_TEMPLATE_FOOTER)
     print(f'Generated {output_path.resolve()} using {input_path}')
+
+def main() -> None:
+    args = parse_args()
+    input_path = Path(args.input)
+    output_path = Path(args.output)
+    generate_drawio(input_path, output_path)
 
 if __name__ == '__main__':
     main()

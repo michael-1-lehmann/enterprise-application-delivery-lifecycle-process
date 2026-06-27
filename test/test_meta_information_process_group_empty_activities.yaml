@@ -1,0 +1,10 @@
+MetaInformation:
+    - Name: "Test"
+      Height: 10
+
+ProcessGroups:
+    - Name: "Test"
+      Color: "#C92D39"
+
+Activities:
+
