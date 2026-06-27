@@ -12,7 +12,6 @@
                     <mxGeometry x="40" y="100" width="255" height="1015.0" as="geometry"/>
                 </mxCell>
 
-
                <mxCell id="re-hWYANieQfaZoZakJm-3" value="&lt;div style=&quot;line-height: 100%;&quot;&gt;&lt;font&gt;&lt;b&gt;Continuous Exploration&lt;/b&gt;&lt;/font&gt;&lt;/div&gt;" style="html=1;whiteSpace=wrap;fillColor=#E6E6E6;container=1;rounded=1;absoluteArcSize=1;arcSize=24;fontSize=24;spacing=0;strokeColor=#666666;strokeOpacity=100;fillOpacity=100;strokeWidth=1.2;labelPosition=center;verticalLabelPosition=middle;align=center;verticalAlign=top;spacingTop=8;" parent="re-hWYANieQfaZoZakJm-001" vertex="1">
                     <mxGeometry x="315" y="100" width="320" height="1015.0" as="geometry"/>
                 </mxCell>
